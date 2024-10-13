@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="rain"></div>
+    <div class="login-card">
+        <h2>Login</h2>
+        <form action="">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+        </form>
+    </div>
+
+    <script>
+        const rainContainer = document.querySelector('.rain');
+
+        function createRainDrop() {
+            const drop = document.createElement('div');
+            drop.classList.add('drop');
+            const size = Math.random() * 2 + 2; 
+            drop.style.width = `${size}px`;
+            drop.style.left = `${Math.random() * 100}vw`;
+            drop.style.animationDuration = `${Math.random() * 1 + 0.5}s`;
+            rainContainer.appendChild(drop);
+
+            drop.addEventListener('animationend', () => {
+                drop.remove();
+            });
+        }
+
+        setInterval(createRainDrop, 100); 
+    </script>
+</body>
+</html>
